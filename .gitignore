@@ -1,0 +1,14 @@
+# Config parameters
+/app/config/config_amqp.yml
+/app/config/parameters.yml
+
+#Ignore all vendors
+/vendor/
+
+# Web directory
+/web/bundles/
+/web/images/
+
+# Cache and log
+/app/cache/*
+/app/logs/*
