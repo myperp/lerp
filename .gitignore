@@ -12,3 +12,6 @@
 # Cache and log
 /app/cache/*
 /app/logs/*
+
+# bin directory
+/bin
