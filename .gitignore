@@ -14,4 +14,4 @@
 /app/logs/*
 
 # bin directory
-/bin
+#/bin
