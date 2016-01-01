@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="CrmBundle\Entity\Historique" table="historique">
+    <indexes>
+      <index name="IDX_HISTORIQUE_NumCommande" columns="NumCommande"/>
+      <index name="IDX_HISTORIQUE_EtatLivraison" columns="EtatLivraison"/>
+      <index name="IDX_HISTORIQUE_DateHeure" columns="DateHeure"/>
+      <index name="IDX_HISTORIQUE_TypeHistorique" columns="TypeHistorique"/>
+      <index name="IDX_HISTORIQUE_IDLigneCde" columns="IDLigneCde"/>
+      <index name="IDX_HISTORIQUE_NumCommandeDateHeure" columns="NumCommande,DateHeure"/>
+      <index name="IDX_HISTORIQUE_DateHeureIDLigneCde" columns="IDLigneCde,DateHeure"/>
+      <index name="IDX_HISTORIQUE_NumCde_EtatLivraison" columns="NumCommande,EtatLivraison"/>
+    </indexes>
+    <id name="idhistorique" type="integer" column="IDHISTORIQUE">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="etatlivraison" type="integer" column="EtatLivraison" nullable="false"/>
+    <field name="dateheure" type="datetime" column="DateHeure" nullable="false"/>
+    <field name="typehistorique" type="integer" column="TypeHistorique" nullable="false"/>
+    <field name="idlignecde" type="bigint" column="IDLigneCde" nullable="false"/>
+    <field name="cheminsignature" type="string" column="CheminSignature" length="255" nullable="false"/>
+    <field name="receptionniste" type="string" column="Receptionniste" length="100" nullable="false"/>
+    <field name="numlivraison" type="string" column="NumLivraison" length="20" nullable="false"/>
+    <many-to-one field="numcommande" target-entity="Commande">
+      <join-columns>
+        <join-column name="NumCommande" referenced-column-name="NumCommande"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

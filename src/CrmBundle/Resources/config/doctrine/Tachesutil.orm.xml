@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="CrmBundle\Entity\Tachesutil" table="tachesutil">
+    <indexes>
+      <index name="IDX_TachesUtil_DateTache" columns="DateTache"/>
+      <index name="IDX_TachesUtil_HeureTache" columns="HeureTache"/>
+    </indexes>
+    <id name="idtachesutil" type="integer" column="IDTachesUtil">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="datetache" type="date" column="DateTache" nullable="false"/>
+    <field name="heuretache" type="integer" column="HeureTache" nullable="false"/>
+    <field name="libelletache" type="string" column="LibelleTache" length="50" nullable="false"/>
+  </entity>
+</doctrine-mapping>

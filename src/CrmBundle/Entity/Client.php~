@@ -1,0 +1,263 @@
+<?php
+
+namespace CrmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Client
+ *
+ * @ORM\Table(name="client", indexes={@ORM\Index(name="IDX_CLIENT_Societe", columns={"Societe"}), @ORM\Index(name="IDX_CLIENT_NomClient", columns={"NomClient"}), @ORM\Index(name="IDX_CLIENT_Telephone", columns={"Telephone"}), @ORM\Index(name="IDX_CLIENT_Fax", columns={"Fax"}), @ORM\Index(name="IDX_CLIENT_AdresseEmail", columns={"AdresseEmail"}), @ORM\Index(name="IDX_CLIENT_Ville", columns={"Ville"}), @ORM\Index(name="IDX_CLIENT_GSM", columns={"GSM"}), @ORM\Index(name="IDX_CLIENT_Type", columns={"Type"}), @ORM\Index(name="IDX_CLIENT_SaisiPar", columns={"SaisiPar"}), @ORM\Index(name="IDX_CLIENT_AuteurModif", columns={"AuteurModif"}), @ORM\Index(name="IDX_CLIENT_CodePostal", columns={"CodePostal"}), @ORM\Index(name="IDX_CLIENT_DateModif", columns={"DateModif"}), @ORM\Index(name="IDX_CLIENT_AdresseEMailNomAdresse", columns={"AdresseEmail", "NomAdresse"}), @ORM\Index(name="IDX_CLIENT_OptimCleComp_1", columns={"Pays", "CodePostal"})})
+ * @ORM\Entity
+ */
+class Client
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="EnCoursAutorise", type="decimal", precision=24, scale=6, nullable=false)
+     */
+    private $encoursautorise;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Civilite", type="string", length=5, nullable=false)
+     */
+    private $civilite;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Societe", type="string", length=40, nullable=false)
+     */
+    private $societe;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Adresse", type="string", length=150, nullable=false)
+     */
+    private $adresse;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Pays", type="string", length=15, nullable=false)
+     */
+    private $pays;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NomClient", type="string", length=20, nullable=false)
+     */
+    private $nomclient;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Telephone", type="string", length=15, nullable=false)
+     */
+    private $telephone;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Fax", type="string", length=15, nullable=false)
+     */
+    private $fax;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="AdresseEmail", type="string", length=30, nullable=false)
+     */
+    private $adresseemail;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Ville", type="string", length=30, nullable=false)
+     */
+    private $ville;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="GSM", type="string", length=15, nullable=false)
+     */
+    private $gsm;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Observations", type="text", nullable=false)
+     */
+    private $observations;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Type", type="smallint", nullable=false)
+     */
+    private $type;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="SaisiPar", type="string", length=20, nullable=false)
+     */
+    private $saisipar;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="AuteurModif", type="string", length=20, nullable=false)
+     */
+    private $auteurmodif;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CodePostal", type="string", length=5, nullable=false)
+     */
+    private $codepostal;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="SaisiLe", type="date", nullable=false)
+     */
+    private $saisile;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="DateModif", type="date", nullable=false)
+     */
+    private $datemodif;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="ExemptTVA", type="boolean", nullable=false)
+     */
+    private $exempttva;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="PrenomClient", type="string", length=20, nullable=false)
+     */
+    private $prenomclient;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Photo", type="string", length=255, nullable=false)
+     */
+    private $photo;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="ARappeler", type="boolean", nullable=false)
+     */
+    private $arappeler;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="AdresseIP", type="string", length=50, nullable=false)
+     */
+    private $adresseip;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Rcs", type="string", length=20, nullable=false)
+     */
+    private $rcs;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="AdresseSuite", type="string", length=150, nullable=false)
+     */
+    private $adressesuite;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="MotDePasse", type="string", length=50, nullable=false)
+     */
+    private $motdepasse;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Question", type="string", length=50, nullable=false)
+     */
+    private $question;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Reponse", type="string", length=20, nullable=false)
+     */
+    private $reponse;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NomAdresse", type="string", length=20, nullable=false)
+     */
+    private $nomadresse;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="DateNaissance", type="date", nullable=false)
+     */
+    private $datenaissance;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NumTVA", type="string", length=20, nullable=false)
+     */
+    private $numtva;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="LCR", type="string", length=20, nullable=false)
+     */
+    private $lcr;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="RIB", type="string", length=20, nullable=false)
+     */
+    private $rib;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Banque", type="string", length=20, nullable=false)
+     */
+    private $banque;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="NumClient", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $numclient;
+
+
+}

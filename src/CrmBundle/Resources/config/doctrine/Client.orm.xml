@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="CrmBundle\Entity\Client" table="client">
+    <indexes>
+      <index name="IDX_CLIENT_Societe" columns="Societe"/>
+      <index name="IDX_CLIENT_NomClient" columns="NomClient"/>
+      <index name="IDX_CLIENT_Telephone" columns="Telephone"/>
+      <index name="IDX_CLIENT_Fax" columns="Fax"/>
+      <index name="IDX_CLIENT_AdresseEmail" columns="AdresseEmail"/>
+      <index name="IDX_CLIENT_Ville" columns="Ville"/>
+      <index name="IDX_CLIENT_GSM" columns="GSM"/>
+      <index name="IDX_CLIENT_Type" columns="Type"/>
+      <index name="IDX_CLIENT_SaisiPar" columns="SaisiPar"/>
+      <index name="IDX_CLIENT_AuteurModif" columns="AuteurModif"/>
+      <index name="IDX_CLIENT_CodePostal" columns="CodePostal"/>
+      <index name="IDX_CLIENT_DateModif" columns="DateModif"/>
+      <index name="IDX_CLIENT_AdresseEMailNomAdresse" columns="AdresseEmail,NomAdresse"/>
+      <index name="IDX_CLIENT_OptimCleComp_1" columns="Pays,CodePostal"/>
+    </indexes>
+    <id name="numclient" type="bigint" column="NumClient">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="encoursautorise" type="decimal" column="EnCoursAutorise" precision="24" scale="6" nullable="false"/>
+    <field name="civilite" type="string" column="Civilite" length="5" nullable="false"/>
+    <field name="societe" type="string" column="Societe" length="40" nullable="false"/>
+    <field name="adresse" type="string" column="Adresse" length="150" nullable="false"/>
+    <field name="pays" type="string" column="Pays" length="15" nullable="false"/>
+    <field name="nomclient" type="string" column="NomClient" length="20" nullable="false"/>
+    <field name="telephone" type="string" column="Telephone" length="15" nullable="false"/>
+    <field name="fax" type="string" column="Fax" length="15" nullable="false"/>
+    <field name="adresseemail" type="string" column="AdresseEmail" length="30" nullable="false"/>
+    <field name="ville" type="string" column="Ville" length="30" nullable="false"/>
+    <field name="gsm" type="string" column="GSM" length="15" nullable="false"/>
+    <field name="observations" type="text" column="Observations" nullable="false"/>
+    <field name="type" type="smallint" column="Type" nullable="false"/>
+    <field name="saisipar" type="string" column="SaisiPar" length="20" nullable="false"/>
+    <field name="auteurmodif" type="string" column="AuteurModif" length="20" nullable="false"/>
+    <field name="codepostal" type="string" column="CodePostal" length="5" nullable="false"/>
+    <field name="saisile" type="date" column="SaisiLe" nullable="false"/>
+    <field name="datemodif" type="date" column="DateModif" nullable="false"/>
+    <field name="exempttva" type="boolean" column="ExemptTVA" nullable="false"/>
+    <field name="prenomclient" type="string" column="PrenomClient" length="20" nullable="false"/>
+    <field name="photo" type="string" column="Photo" length="255" nullable="false"/>
+    <field name="arappeler" type="boolean" column="ARappeler" nullable="false"/>
+    <field name="adresseip" type="string" column="AdresseIP" length="50" nullable="false"/>
+    <field name="rcs" type="string" column="Rcs" length="20" nullable="false"/>
+    <field name="adressesuite" type="string" column="AdresseSuite" length="150" nullable="false"/>
+    <field name="motdepasse" type="string" column="MotDePasse" length="50" nullable="false"/>
+    <field name="question" type="string" column="Question" length="50" nullable="false"/>
+    <field name="reponse" type="string" column="Reponse" length="20" nullable="false"/>
+    <field name="nomadresse" type="string" column="NomAdresse" length="20" nullable="false"/>
+    <field name="datenaissance" type="date" column="DateNaissance" nullable="false"/>
+    <field name="numtva" type="string" column="NumTVA" length="20" nullable="false"/>
+    <field name="lcr" type="string" column="LCR" length="20" nullable="false"/>
+    <field name="rib" type="string" column="RIB" length="20" nullable="false"/>
+    <field name="banque" type="string" column="Banque" length="20" nullable="false"/>
+  </entity>
+</doctrine-mapping>

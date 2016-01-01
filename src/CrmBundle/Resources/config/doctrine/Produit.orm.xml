@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="CrmBundle\Entity\Produit" table="produit">
+    <indexes>
+      <index name="IDX_PRODUIT_LibProd" columns="LibProd"/>
+      <index name="IDX_PRODUIT_PrixHT" columns="PrixHT"/>
+      <index name="IDX_PRODUIT_QteReappro" columns="QteReappro"/>
+      <index name="IDX_PRODUIT_QteMini" columns="QteMini"/>
+      <index name="IDX_PRODUIT_NumFournisseur" columns="NumFournisseur"/>
+      <index name="IDX_PRODUIT_TauxTVA" columns="TauxTVA"/>
+      <index name="IDX_PRODUIT_GenCode" columns="GenCode"/>
+      <index name="IDX_PRODUIT_SaisiPar" columns="SaisiPar"/>
+      <index name="IDX_PRODUIT_LibCategorie" columns="LibCategorie"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="Reference" columns="Reference"/>
+    </unique-constraints>
+    <id name="idproduit" type="bigint" column="IDProduit">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="libprod" type="string" column="LibProd" length="32" nullable="false"/>
+    <field name="photo" type="blob" column="Photo" nullable="false"/>
+    <field name="prixht" type="decimal" column="PrixHT" precision="24" scale="6" nullable="false"/>
+    <field name="qtereappro" type="integer" column="QteReappro" nullable="false"/>
+    <field name="qtemini" type="integer" column="QteMini" nullable="false"/>
+    <field name="reference" type="string" column="Reference" length="8" nullable="false"/>
+    <field name="tauxtva" type="float" column="TauxTVA" precision="10" scale="0" nullable="false"/>
+    <field name="description" type="text" column="Description" nullable="false"/>
+    <field name="plusaucatalogue" type="boolean" column="PlusAuCatalogue" nullable="false"/>
+    <field name="gencode" type="string" column="GenCode" length="15" nullable="false"/>
+    <field name="saisipar" type="string" column="SaisiPar" length="20" nullable="false"/>
+    <field name="saisile" type="date" column="SaisiLe" nullable="false"/>
+    <many-to-one field="numfournisseur" target-entity="Fournisseur">
+      <join-columns>
+        <join-column name="NumFournisseur" referenced-column-name="NumFournisseur"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="libcategorie" target-entity="Categorie">
+      <join-columns>
+        <join-column name="LibCategorie" referenced-column-name="LibCategorie"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

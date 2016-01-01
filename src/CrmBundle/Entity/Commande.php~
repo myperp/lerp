@@ -1,0 +1,203 @@
+<?php
+
+namespace CrmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Commande
+ *
+ * @ORM\Table(name="commande", indexes={@ORM\Index(name="IDX_COMMANDE_DateCommande", columns={"DateCommande"}), @ORM\Index(name="IDX_COMMANDE_NumClient", columns={"NumClient"}), @ORM\Index(name="IDX_COMMANDE_EtatCommande", columns={"EtatCommande"}), @ORM\Index(name="IDX_COMMANDE_SaisiPar", columns={"SaisiPar"}), @ORM\Index(name="IDX_COMMANDE_TypeCommande", columns={"TypeCommande"}), @ORM\Index(name="IDX_COMMANDE_ModeReglement", columns={"ModeReglement"}), @ORM\Index(name="IDX_COMMANDE_OptimCleComp_1", columns={"TypeCommande", "SaisiPar", "NumClient", "ModeReglement", "EtatCommande", "DateCommande"}), @ORM\Index(name="IDX_COMMANDE_OptimCleComp_2", columns={"TypeCommande", "SaisiPar", "ModeReglement", "EtatCommande", "DateCommande"}), @ORM\Index(name="IDX_COMMANDE_OptimCleComp_3", columns={"TypeCommande", "DateCommande"}), @ORM\Index(name="IDX_COMMANDE_OptimCleComp_4", columns={"TypeCommande", "NumClient", "DateCommande"}), @ORM\Index(name="IDX_COMMANDE_OptimCleComp_5", columns={"TypeCommande", "EtatCommande", "DateCommande"}), @ORM\Index(name="IDX_COMMANDE_OptimCleComp_6", columns={"NumClient", "DateCommande"})})
+ * @ORM\Entity
+ */
+class Commande
+{
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="DateCommande", type="date", nullable=false)
+     */
+    private $datecommande;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TotalHT", type="decimal", precision=24, scale=6, nullable=false)
+     */
+    private $totalht;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TotalTTC", type="decimal", precision=24, scale=6, nullable=false)
+     */
+    private $totalttc;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TotalTVA", type="decimal", precision=24, scale=6, nullable=false)
+     */
+    private $totaltva;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="EtatCommande", type="integer", nullable=false)
+     */
+    private $etatcommande;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="SaisiPar", type="string", length=20, nullable=false)
+     */
+    private $saisipar;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="SaisiLe", type="date", nullable=false)
+     */
+    private $saisile;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="DateFacturation", type="date", nullable=false)
+     */
+    private $datefacturation;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Observations", type="text", nullable=false)
+     */
+    private $observations;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="TypeCommande", type="integer", nullable=false)
+     */
+    private $typecommande;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="AdresseFacturation", type="string", length=200, nullable=false)
+     */
+    private $adressefacturation;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="AdresseLivraison", type="string", length=200, nullable=false)
+     */
+    private $adresselivraison;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ModeReglement", type="string", length=40, nullable=false)
+     */
+    private $modereglement;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NumCommandeClient", type="string", length=20, nullable=false)
+     */
+    private $numcommandeclient;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="DateExigibilite", type="date", nullable=false)
+     */
+    private $dateexigibilite;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Transporteur", type="string", length=20, nullable=false)
+     */
+    private $transporteur;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DelaiPaiement", type="string", length=20, nullable=false)
+     */
+    private $delaipaiement;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="NumPAQ", type="integer", nullable=false)
+     */
+    private $numpaq;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="RIB", type="string", length=20, nullable=false)
+     */
+    private $rib;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="LCR", type="string", length=20, nullable=false)
+     */
+    private $lcr;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Banque", type="string", length=20, nullable=false)
+     */
+    private $banque;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="FraisPort", type="decimal", precision=24, scale=6, nullable=false)
+     */
+    private $fraisport;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="COD", type="string", length=20, nullable=false)
+     */
+    private $cod;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Divers", type="string", length=20, nullable=false)
+     */
+    private $divers;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="NumCommande", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $numcommande;
+
+    /**
+     * @var \CrmBundle\Entity\Client
+     *
+     * @ORM\ManyToOne(targetEntity="CrmBundle\Entity\Client")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="NumClient", referencedColumnName="NumClient")
+     * })
+     */
+    private $numclient;
+
+
+}

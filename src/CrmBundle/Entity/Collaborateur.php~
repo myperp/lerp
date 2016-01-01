@@ -1,0 +1,130 @@
+<?php
+
+namespace CrmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Collaborateur
+ *
+ * @ORM\Table(name="collaborateur", uniqueConstraints={@ORM\UniqueConstraint(name="NomPrenom", columns={"NomPrenom"})}, indexes={@ORM\Index(name="IDX_COLLABORATEUR_CodePostal", columns={"CodePostal"}), @ORM\Index(name="IDX_COLLABORATEUR_Ville", columns={"Ville"}), @ORM\Index(name="IDX_COLLABORATEUR_Telephone", columns={"Telephone"})})
+ * @ORM\Entity
+ */
+class Collaborateur
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Civilite", type="string", length=5, nullable=false)
+     */
+    private $civilite;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NomPrenom", type="string", length=20, nullable=false)
+     */
+    private $nomprenom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TitreProfessionnel", type="string", length=40, nullable=false)
+     */
+    private $titreprofessionnel;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Adresse", type="string", length=150, nullable=false)
+     */
+    private $adresse;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CodePostal", type="string", length=5, nullable=false)
+     */
+    private $codepostal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Ville", type="string", length=40, nullable=false)
+     */
+    private $ville;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Telephone", type="string", length=15, nullable=false)
+     */
+    private $telephone;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NumeroAbrege", type="string", length=4, nullable=false)
+     */
+    private $numeroabrege;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Fax", type="string", length=14, nullable=false)
+     */
+    private $fax;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NumeroGSM", type="string", length=14, nullable=false)
+     */
+    private $numerogsm;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Commentaire", type="text", nullable=false)
+     */
+    private $commentaire;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="AdressEmail", type="string", length=80, nullable=false)
+     */
+    private $adressemail;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Poste", type="string", length=8, nullable=false)
+     */
+    private $poste;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Photo", type="blob", nullable=false)
+     */
+    private $photo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="AdresseSuite", type="string", length=150, nullable=false)
+     */
+    private $adressesuite;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="IDCollaborateur", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idcollaborateur;
+
+
+}

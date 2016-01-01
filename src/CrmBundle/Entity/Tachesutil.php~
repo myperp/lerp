@@ -1,0 +1,46 @@
+<?php
+
+namespace CrmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Tachesutil
+ *
+ * @ORM\Table(name="tachesutil", indexes={@ORM\Index(name="IDX_TachesUtil_DateTache", columns={"DateTache"}), @ORM\Index(name="IDX_TachesUtil_HeureTache", columns={"HeureTache"})})
+ * @ORM\Entity
+ */
+class Tachesutil
+{
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="DateTache", type="date", nullable=false)
+     */
+    private $datetache;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="HeureTache", type="integer", nullable=false)
+     */
+    private $heuretache;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="LibelleTache", type="string", length=50, nullable=false)
+     */
+    private $libelletache;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="IDTachesUtil", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idtachesutil;
+
+
+}

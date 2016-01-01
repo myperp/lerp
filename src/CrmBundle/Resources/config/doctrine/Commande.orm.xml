@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="CrmBundle\Entity\Commande" table="commande">
+    <indexes>
+      <index name="IDX_COMMANDE_DateCommande" columns="DateCommande"/>
+      <index name="IDX_COMMANDE_NumClient" columns="NumClient"/>
+      <index name="IDX_COMMANDE_EtatCommande" columns="EtatCommande"/>
+      <index name="IDX_COMMANDE_SaisiPar" columns="SaisiPar"/>
+      <index name="IDX_COMMANDE_TypeCommande" columns="TypeCommande"/>
+      <index name="IDX_COMMANDE_ModeReglement" columns="ModeReglement"/>
+      <index name="IDX_COMMANDE_OptimCleComp_1" columns="TypeCommande,SaisiPar,NumClient,ModeReglement,EtatCommande,DateCommande"/>
+      <index name="IDX_COMMANDE_OptimCleComp_2" columns="TypeCommande,SaisiPar,ModeReglement,EtatCommande,DateCommande"/>
+      <index name="IDX_COMMANDE_OptimCleComp_3" columns="TypeCommande,DateCommande"/>
+      <index name="IDX_COMMANDE_OptimCleComp_4" columns="TypeCommande,NumClient,DateCommande"/>
+      <index name="IDX_COMMANDE_OptimCleComp_5" columns="TypeCommande,EtatCommande,DateCommande"/>
+      <index name="IDX_COMMANDE_OptimCleComp_6" columns="NumClient,DateCommande"/>
+    </indexes>
+    <id name="numcommande" type="bigint" column="NumCommande">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="datecommande" type="date" column="DateCommande" nullable="false"/>
+    <field name="totalht" type="decimal" column="TotalHT" precision="24" scale="6" nullable="false"/>
+    <field name="totalttc" type="decimal" column="TotalTTC" precision="24" scale="6" nullable="false"/>
+    <field name="totaltva" type="decimal" column="TotalTVA" precision="24" scale="6" nullable="false"/>
+    <field name="etatcommande" type="integer" column="EtatCommande" nullable="false"/>
+    <field name="saisipar" type="string" column="SaisiPar" length="20" nullable="false"/>
+    <field name="saisile" type="date" column="SaisiLe" nullable="false"/>
+    <field name="datefacturation" type="date" column="DateFacturation" nullable="false"/>
+    <field name="observations" type="text" column="Observations" nullable="false"/>
+    <field name="typecommande" type="integer" column="TypeCommande" nullable="false"/>
+    <field name="adressefacturation" type="string" column="AdresseFacturation" length="200" nullable="false"/>
+    <field name="adresselivraison" type="string" column="AdresseLivraison" length="200" nullable="false"/>
+    <field name="modereglement" type="string" column="ModeReglement" length="40" nullable="false"/>
+    <field name="numcommandeclient" type="string" column="NumCommandeClient" length="20" nullable="false"/>
+    <field name="dateexigibilite" type="date" column="DateExigibilite" nullable="false"/>
+    <field name="transporteur" type="string" column="Transporteur" length="20" nullable="false"/>
+    <field name="delaipaiement" type="string" column="DelaiPaiement" length="20" nullable="false"/>
+    <field name="numpaq" type="integer" column="NumPAQ" nullable="false"/>
+    <field name="rib" type="string" column="RIB" length="20" nullable="false"/>
+    <field name="lcr" type="string" column="LCR" length="20" nullable="false"/>
+    <field name="banque" type="string" column="Banque" length="20" nullable="false"/>
+    <field name="fraisport" type="decimal" column="FraisPort" precision="24" scale="6" nullable="false"/>
+    <field name="cod" type="string" column="COD" length="20" nullable="false"/>
+    <field name="divers" type="string" column="Divers" length="20" nullable="false"/>
+    <many-to-one field="numclient" target-entity="Client">
+      <join-columns>
+        <join-column name="NumClient" referenced-column-name="NumClient"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

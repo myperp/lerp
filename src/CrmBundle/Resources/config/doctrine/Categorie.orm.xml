@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="CrmBundle\Entity\Categorie" table="categorie">
+    <indexes>
+      <index name="IDX_CATEGORIE_LibCategorieParent" columns="LibCategorieParent"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="LibCategorie" columns="LibCategorie"/>
+    </unique-constraints>
+    <id name="idcategorie" type="bigint" column="IDCategorie">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="libcategorie" type="string" column="LibCategorie" length="30" nullable="false"/>
+    <field name="souscategorie" type="boolean" column="SousCategorie" nullable="false"/>
+    <field name="libcategorieparent" type="string" column="LibCategorieParent" length="30" nullable="false"/>
+  </entity>
+</doctrine-mapping>

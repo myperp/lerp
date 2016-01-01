@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="CrmBundle\Entity\Collaborateur" table="collaborateur">
+    <indexes>
+      <index name="IDX_COLLABORATEUR_CodePostal" columns="CodePostal"/>
+      <index name="IDX_COLLABORATEUR_Ville" columns="Ville"/>
+      <index name="IDX_COLLABORATEUR_Telephone" columns="Telephone"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="NomPrenom" columns="NomPrenom"/>
+    </unique-constraints>
+    <id name="idcollaborateur" type="bigint" column="IDCollaborateur">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="civilite" type="string" column="Civilite" length="5" nullable="false"/>
+    <field name="nomprenom" type="string" column="NomPrenom" length="20" nullable="false"/>
+    <field name="titreprofessionnel" type="string" column="TitreProfessionnel" length="40" nullable="false"/>
+    <field name="adresse" type="string" column="Adresse" length="150" nullable="false"/>
+    <field name="codepostal" type="string" column="CodePostal" length="5" nullable="false"/>
+    <field name="ville" type="string" column="Ville" length="40" nullable="false"/>
+    <field name="telephone" type="string" column="Telephone" length="15" nullable="false"/>
+    <field name="numeroabrege" type="string" column="NumeroAbrege" length="4" nullable="false"/>
+    <field name="fax" type="string" column="Fax" length="14" nullable="false"/>
+    <field name="numerogsm" type="string" column="NumeroGSM" length="14" nullable="false"/>
+    <field name="commentaire" type="text" column="Commentaire" nullable="false"/>
+    <field name="adressemail" type="string" column="AdressEmail" length="80" nullable="false"/>
+    <field name="poste" type="string" column="Poste" length="8" nullable="false"/>
+    <field name="photo" type="blob" column="Photo" nullable="false"/>
+    <field name="adressesuite" type="string" column="AdresseSuite" length="150" nullable="false"/>
+  </entity>
+</doctrine-mapping>

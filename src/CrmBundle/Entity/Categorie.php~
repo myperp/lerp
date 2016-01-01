@@ -1,0 +1,46 @@
+<?php
+
+namespace CrmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Categorie
+ *
+ * @ORM\Table(name="categorie", uniqueConstraints={@ORM\UniqueConstraint(name="LibCategorie", columns={"LibCategorie"})}, indexes={@ORM\Index(name="IDX_CATEGORIE_LibCategorieParent", columns={"LibCategorieParent"})})
+ * @ORM\Entity
+ */
+class Categorie
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="LibCategorie", type="string", length=30, nullable=false)
+     */
+    private $libcategorie;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="SousCategorie", type="boolean", nullable=false)
+     */
+    private $souscategorie;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="LibCategorieParent", type="string", length=30, nullable=false)
+     */
+    private $libcategorieparent;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="IDCategorie", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idcategorie;
+
+
+}

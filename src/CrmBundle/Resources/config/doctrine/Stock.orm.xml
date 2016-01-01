@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="CrmBundle\Entity\Stock" table="stock">
+    <indexes>
+      <index name="IDX_STOCK_AuteurModif" columns="AuteurModif"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="Reference" columns="Reference"/>
+    </unique-constraints>
+    <id name="idstock" type="bigint" column="IDStock">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="qteenstock" type="integer" column="QteEnStock" nullable="false"/>
+    <field name="auteurmodif" type="string" column="AuteurModif" length="20" nullable="false"/>
+    <field name="datemodif" type="date" column="DateModif" nullable="false"/>
+    <field name="qtestockvirtuel" type="integer" column="QteStockVirtuel" nullable="false"/>
+    <many-to-one field="reference" target-entity="Produit">
+      <join-columns>
+        <join-column name="Reference" referenced-column-name="Reference"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

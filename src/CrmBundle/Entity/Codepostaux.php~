@@ -1,0 +1,39 @@
+<?php
+
+namespace CrmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Codepostaux
+ *
+ * @ORM\Table(name="codepostaux", indexes={@ORM\Index(name="IDX_CODEPOSTAUX_Ville", columns={"Ville"}), @ORM\Index(name="IDX_CODEPOSTAUX_CodePostal", columns={"CodePostal"})})
+ * @ORM\Entity
+ */
+class Codepostaux
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Ville", type="string", length=30, nullable=false)
+     */
+    private $ville;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CodePostal", type="string", length=5, nullable=false)
+     */
+    private $codepostal;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="IDCedex", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idcedex;
+
+
+}

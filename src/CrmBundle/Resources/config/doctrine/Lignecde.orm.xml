@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="CrmBundle\Entity\Lignecde" table="lignecde">
+    <indexes>
+      <index name="IDX_LIGNECDE_Quantite" columns="Quantite"/>
+      <index name="IDX_LIGNECDE_Reference" columns="Reference"/>
+      <index name="IDX_LIGNECDE_NumCommande" columns="NumCommande"/>
+      <index name="IDX_LIGNECDE_TauxTVA" columns="TauxTVA"/>
+      <index name="IDX_LIGNECDE_LibProd" columns="LibProd"/>
+      <index name="IDX_LIGNECDE_OptimCleComp_1" columns="NumCommande,Quantite"/>
+      <index name="IDX_LIGNECDE_OptimCleComp_2" columns="Reference,NumCommande"/>
+    </indexes>
+    <id name="idlignecde" type="bigint" column="IDLigneCde">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="quantite" type="bigint" column="Quantite" nullable="false"/>
+    <field name="remise" type="decimal" column="Remise" precision="24" scale="6" nullable="false"/>
+    <field name="tauxtva" type="float" column="TauxTVA" precision="10" scale="0" nullable="false"/>
+    <field name="prixvente" type="decimal" column="PrixVente" precision="24" scale="6" nullable="false"/>
+    <field name="livre" type="boolean" column="Livre" nullable="false"/>
+    <field name="libprod" type="string" column="LibProd" length="32" nullable="false"/>
+    <many-to-one field="numcommande" target-entity="Commande">
+      <join-columns>
+        <join-column name="NumCommande" referenced-column-name="NumCommande"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="reference" target-entity="Produit">
+      <join-columns>
+        <join-column name="Reference" referenced-column-name="Reference"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

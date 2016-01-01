@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="CrmBundle\Entity\Tache" table="tache">
+    <indexes>
+      <index name="IDX_TACHE_Duree" columns="Duree"/>
+      <index name="IDX_TACHE_DateLimite" columns="DateLimite"/>
+      <index name="IDX_TACHE_NomPrenom" columns="NomPrenom"/>
+    </indexes>
+    <id name="idtache" type="integer" column="IDTache">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="duree" type="integer" column="Duree" nullable="false"/>
+    <field name="description" type="text" column="Description" nullable="false"/>
+    <field name="datelimite" type="date" column="DateLimite" nullable="false"/>
+    <field name="titretache" type="string" column="TitreTache" length="50" nullable="false"/>
+    <many-to-one field="nomprenom" target-entity="Collaborateur">
+      <join-columns>
+        <join-column name="NomPrenom" referenced-column-name="NomPrenom"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,87 @@
+<?php
+
+namespace CrmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Lignecde
+ *
+ * @ORM\Table(name="lignecde", indexes={@ORM\Index(name="IDX_LIGNECDE_Quantite", columns={"Quantite"}), @ORM\Index(name="IDX_LIGNECDE_Reference", columns={"Reference"}), @ORM\Index(name="IDX_LIGNECDE_NumCommande", columns={"NumCommande"}), @ORM\Index(name="IDX_LIGNECDE_TauxTVA", columns={"TauxTVA"}), @ORM\Index(name="IDX_LIGNECDE_LibProd", columns={"LibProd"}), @ORM\Index(name="IDX_LIGNECDE_OptimCleComp_1", columns={"NumCommande", "Quantite"}), @ORM\Index(name="IDX_LIGNECDE_OptimCleComp_2", columns={"Reference", "NumCommande"})})
+ * @ORM\Entity
+ */
+class Lignecde
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Quantite", type="bigint", nullable=false)
+     */
+    private $quantite;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Remise", type="decimal", precision=24, scale=6, nullable=false)
+     */
+    private $remise;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="TauxTVA", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $tauxtva;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="PrixVente", type="decimal", precision=24, scale=6, nullable=false)
+     */
+    private $prixvente;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="Livre", type="boolean", nullable=false)
+     */
+    private $livre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="LibProd", type="string", length=32, nullable=false)
+     */
+    private $libprod;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="IDLigneCde", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idlignecde;
+
+    /**
+     * @var \CrmBundle\Entity\Commande
+     *
+     * @ORM\ManyToOne(targetEntity="CrmBundle\Entity\Commande")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="NumCommande", referencedColumnName="NumCommande")
+     * })
+     */
+    private $numcommande;
+
+    /**
+     * @var \CrmBundle\Entity\Produit
+     *
+     * @ORM\ManyToOne(targetEntity="CrmBundle\Entity\Produit")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Reference", referencedColumnName="Reference")
+     * })
+     */
+    private $reference;
+
+
+}
