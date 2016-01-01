@@ -1,1 +1,5 @@
+crm:
+    resource: "@CrmBundle/Controller/"
+    type:     annotation
+    prefix:   /
 
